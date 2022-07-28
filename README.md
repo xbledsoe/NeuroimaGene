@@ -2,7 +2,7 @@
 
 This is the resource page for the NeuroimaGENE resource described in our paper "Neuroimaging Transcriptome Studies Inform Network Level Dysregulation in Neuropsychiatric Traits." This resource serves as a publicly accessible atlas detailing the associations between endogenous gene expression and brain anatomy and physiology. As detailed in the paper, we conduct Joint Tissue Imputation informed Transcriptome wide association studies via S-PrediXcan for the >3,000  genome wide association studies (GWAS) conducted by the UK BioBank (UKB) for MRI-derived measures of the brain. In doing so, we identify genetically regulated gene expression (GReX) and associate variation in GReX with neurologic measures ovserved on MRI imaging. The patients comprising the UKB neuroimaging study are 40-69 and were screened for overt neurologic pathology. To the best of their ability, they represent an adult population without neurologic disease. 
 
-As such, we posit that NeuroimaGENE as a resource details the neurologic consequences of lifelong exposure to increases or decreases in gene expression. 
+As such, NeuroimaGENE catalogues the neurologic consequences of lifelong exposure to increases or decreases in gene expression. 
 
 Before continuing, a little terminology. 
 
@@ -56,7 +56,11 @@ NIDP details can be found [here](https://www.fmrib.ox.ac.uk/ukbiobank/) and [her
 
 ### Analytic Tools and built-in NIDP prioritization
 
-Included in the NeuroimaGENE directory is an Rscript for analysis of multiple genes. This program takes as input a file of HUGO gene names. As output, it generated txt files containing the top 5% of NIDPs implicated by the provided list of genes as well as graphs that provide visual representations of the association data. Packages and dependencies required to run this script are listed at the bottom of this subsection.
+Included in the NeuroimaGENE directory is an Rscript for analysis of multiple genes. This program takes as input a file of HUGO gene names. As output, it generated txt files containing the top 5% of NIDPs implicated by the provided list of genes as well as graphs that provide visual representations of the association data. 
+
+This script and the data it generates are designed to identify instances in which multiple trait-associated genes all converge upon related neurologic aspects. For example, on might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running GetNIDPs.r on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant. 
+
+Packages and dependencies required to run this script are listed at the bottom of this subsection.
 
 This Rscript requires the following parameters
 
@@ -101,7 +105,7 @@ ggplot R package [download here](https://ggplot2.tidyverse.org/)
 
 optparse R package [download here](https://github.com/trevorld/r-optparse)
 
-
+>Please direct all questions to me at the following email: xbledsoe22@gmail.com
 
 
 	
