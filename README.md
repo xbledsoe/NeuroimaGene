@@ -22,11 +22,15 @@ Before continuing, a little terminology.
 
 #### Associated Papers for further reading
 
->Barbeira, Alvaro N., et al. "Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics." Nature communications 9.1 (2018): 1-20.
->Zhou, Dan, et al. "A unified framework for joint-tissue transcriptome-wide association and Mendelian randomization analysis." Nature genetics 52.11 (2020): 1239-1246.
->Miller, Karla L., et al. "Multimodal population brain imaging in the UK Biobank prospective epidemiological study." Nature neuroscience 19.11 (2016): 1523-1536.
->Elliott, Lloyd T., et al. "Genome-wide association studies of brain imaging phenotypes in UK Biobank." Nature 562.7726 (2018): 210-216.
->Gamazon, Eric R., et al. "Multi-tissue transcriptome analyses identify genetic mechanisms underlying neuropsychiatric traits." Nature genetics 51.6 (2019): 933-940.
+Barbeira, Alvaro N., et al. "Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics." Nature communications 9.1 (2018): 1-20.
+
+Zhou, Dan, et al. "A unified framework for joint-tissue transcriptome-wide association and Mendelian randomization analysis." Nature genetics 52.11 (2020): 1239-1246.
+
+Miller, Karla L., et al. "Multimodal population brain imaging in the UK Biobank prospective epidemiological study." Nature neuroscience 19.11 (2016): 1523-1536.
+
+Elliott, Lloyd T., et al. "Genome-wide association studies of brain imaging phenotypes in UK Biobank." Nature 562.7726 (2018): 210-216.
+
+Gamazon, Eric R., et al. "Multi-tissue transcriptome analyses identify genetic mechanisms underlying neuropsychiatric traits." Nature genetics 51.6 (2019): 933-940.
 
 ## Using the Resource
 
@@ -99,7 +103,7 @@ In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple test
  **PLEASE NOTE: the Bonferroni and Benjamini-hochberg analyses take into account all ~22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page. 
 
 
-#### Using the commandline tools 
+### Using the commandline tools 
 
 To use get_nidps.sh, run the following command in terminal:
 	
@@ -129,7 +133,7 @@ Run the script with the following commands customized for your genes of interest
 		-f INPUT_GENES.txt \
 		-o OUTPUT_DIR \
 		-n NAME \
-		-t PATH/resource_data/TWASFILE \
+		-t PATH/resource_data/TWASFILE.txt.gz \
 		-a PATH/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 		
 An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs in addition to the full set of NIDPs. 
@@ -139,11 +143,11 @@ An additional flag is the **-g** flag for genes. include **-g y** in the Rscript
 Within the Neuroimagene directory is an example template. This is meant to be run as a tutorial. You can run the tutorial via the following script requiring only the PATH of the downloaded directory. 
 
 	Rscript PATH/GetNIDPs.r \
-	-i PATH/gns.txt
-	-o PATH/testdir/
+	-f PATH/tutorial/gns.txt
+	-o PATH/tutorial/
 	-n test_data
-	-p PATH/
-	-g y
+	-t PATH/resource_data/
+	-a PATH/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 
 Amongst the other data generated, this should generate the following figure detailing NIDPs on the x axis and the mean normalized effect size magnitude on the y axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
