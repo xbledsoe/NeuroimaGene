@@ -60,9 +60,9 @@ Included in the NeuroimaGENE directory is a commandline tool for analysis of mul
 
 This script and the data it generates are designed to identify instances in which dysexpression of multiple genes of interest converge upon related neurologic aspects. For example, one might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running get_nidps.sh on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant. 
 
-In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. The options provided in the commandline tool are detailed below. 
+In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. **The options provided in the commandline tool are detailed in the dropdown table below.** 
 
-<details><summary>**CLICK ME for NIDP atlas descriptions and source links**</summary>
+<details><summary>NIDP atlas descriptions and source links</summary>
 <p>
 
 |MRI modality| atlas name | Description | source | 
