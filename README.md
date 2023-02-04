@@ -67,30 +67,30 @@ In the process of using the tool, the user is responsible for selecting a subset
 <details><summary>NIDP atlas descriptions and source links</summary>
 <p>
 
-|MRI modality| atlas name | Description | source | 
-| --- | --- | --- | --- | 
-|T1 | all | All measures recorded by the UKB neuroimaging study derived from T1 imaging| see note\*|
-|T1 |a2009s | Destrieux atlas parcellation of cortical sulci and gyri | [Destrieux](https://doi.org/10.1016/j.neuroimage.2010.06.010) |
-|T1 |AmygNuclei | morphology of Nuclei of the amygdala | [Amygdala nuclei](https://doi.org/10.1016/j.neuroimage.2017.04.046)|
-|T1 |aseg_volume | subcortical volumetric segmentation | [aseg_volume](https://doi.org/10.1016/S0896-6273(02)00569-X)|
-|T1 | Broadmann | cortical morphology via Broadmann Areas | [Broadmann](https://doi.org/10.1093/cercor/bhm225)|
-|T1 | Desikan | Desikan Killiany atlas parcellation of cortical morphology | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)|
-|T1 | DKTatlas | DKT atlas parcellation of cortical morphology | [DKTatlas](https://doi.org/10.3389/fnins.2012.00171)|
-|T1 | FAST | cortical morphology via FMRIB's Automatic Segmentation Tool | [FAST](https://doi.org/10.1109/42.906424)|
-|T1 | FIRST | Subcortical morphologogy via FIRST | [FIRST](https://doi.org/10.1016/j.neuroimage.2011.02.046)|
-|T1 | HippSubfield | morphology of Hippocampal subfields | [HippSubfield](https://doi.org/10.1016/j.neuroimage.2015.04.042)|
-|T1 | pial | structure: Desikan Killiany atlas of the pial surface | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)|
-|T1 | Brainstem | structure: Freesurfer brainstem parcellation | [Brainstem](https://doi.org/10.1016/j.neuroimage.2015.02.065)|
-|T1 | SIENAX | structure: Structural Image Evaluation of whole brain measures | [SIENAX](https://doi.org/10.1006/nimg.2002.1040)|
-|T1 | ThalamNuclei | morphology of the Nuclei of the thalamus | [ThalamNuclei](https://doi.org/10.1038/s41597-021-01062-y)|
-|dMRI | all | All measures recorded by the UKB neuroimaging study derived from DWI imaging| see note\*|
-|dMRI | ProbtrackX | white matter mapping obtained via probabilistic tractography | [ProbtrackX](https://doi.org/10.1371/journal.pone.0061892)\*|
-|dMRI | TBSS | white matter mapping obtained via tract-based spatial statistics	 | [TBSS](https://doi.org/10.1016/j.neuroimage.2006.02.024)\*|
-|rfMRI | ICA100 | functional connectivity using 100 cortical seeds | see note\*|
-|rfMRI |ICA25 | functional connectivity using 25 cortical seeds | see note\*|
-|rfMRI |ICA-features | summary of functional connectivity components | see note\*|
-|T2_FLAIR | BIANCA | white matter hyperintensity classification algorithm | [BIANCA](https://doi.org/10.1016%2Fj.neuroimage.2016.07.018)|
-|T2star | SWI | susceptibility-weighted imaging: microhemorrhage and hemosiderin deposits | see note\*|
+|MRI modality| atlas name | Number of NIDPs |Description | source | 
+| --- | --- | --- | --- | --- |
+|T1 | all | 1319 | All measures recorded by the UKB neuroimaging study derived from T1 imaging| see note\*|
+|T1 | a2009s | 444 | Destrieux atlas parcellation of cortical sulci and gyri | [Destrieux](https://doi.org/10.1016/j.neuroimage.2010.06.010) |
+|T1 | AmygNuclei | 20 | morphology of Nuclei of the amygdala | [Amygdala nuclei](https://doi.org/10.1016/j.neuroimage.2017.04.046)|
+|T1 | aseg_volume | 52 | subcortical volumetric segmentation | [aseg_volume](https://doi.org/10.1016/S0896-6273(02)00569-X)|
+|T1 | Broadmann | 84 | cortical morphology via Broadmann Areas | [Broadmann](https://doi.org/10.1093/cercor/bhm225)|
+|T1 | Desikan | 202 | Desikan Killiany atlas parcellation of cortical morphology | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)|
+|T1 | DKTatlas | 186 | DKT atlas parcellation of cortical morphology | [DKTatlas](https://doi.org/10.3389/fnins.2012.00171)|
+|T1 | FAST | 139 | cortical morphology via FMRIB's Automatic Segmentation Tool | [FAST](https://doi.org/10.1109/42.906424)|
+|T1 | FIRST | 15 | Subcortical morphologogy via FIRST | [FIRST](https://doi.org/10.1016/j.neuroimage.2011.02.046)|
+|T1 | HippSubfield | 44 | morphology of Hippocampal subfields | [HippSubfield](https://doi.org/10.1016/j.neuroimage.2015.04.042)|
+|T1 | pial | 66 | structure: Desikan Killiany atlas of the pial surface | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)|
+|T1 | Brainstem | 5 | structure: Freesurfer brainstem parcellation | [Brainstem](https://doi.org/10.1016/j.neuroimage.2015.02.065)|
+|T1 | SIENAX | 10 |structure: Structural Image Evaluation of whole brain measures | [SIENAX](https://doi.org/10.1006/nimg.2002.1040)|
+|T1 | ThalamNuclei | 52 | morphology of the Nuclei of the thalamus | [ThalamNuclei](https://doi.org/10.1038/s41597-021-01062-y)|
+|dMRI | all | 675 | All measures recorded by the UKB neuroimaging study derived from DWI imaging| see note\*|
+|dMRI | ProbtrackX | 243 | white matter mapping obtained via probabilistic tractography | [ProbtrackX](https://doi.org/10.1371/journal.pone.0061892)\*|
+|dMRI | TBSS | 432 | white matter mapping obtained via tract-based spatial statistics	 | [TBSS](https://doi.org/10.1016/j.neuroimage.2006.02.024)\*|
+|rfMRI | ICA100 | 1485 | functional connectivity using 100 cortical seeds | see note\*|
+|rfMRI | ICA25 | 210 | functional connectivity using 25 cortical seeds | see note\*|
+|rfMRI | ICA-features | 6 | summary of functional connectivity components | see note\*|
+|T2_FLAIR | BIANCA | 1 | white matter hyperintensity classification algorithm | [BIANCA](https://doi.org/10.1016%2Fj.neuroimage.2016.07.018)|
+|T2star | SWI | 14 | susceptibility-weighted imaging: microhemorrhage and hemosiderin deposits | see note\*|
 
 \* see original publication for details [here](https://doi.org/10.1016/j.neuroimage.2017.10.034) (Alfaro-Almagro, Fidel, et al. "Image processing and Quality Control for the first 10,000 brain imaging datasets from UK Biobank." Neuroimage 166 (2018): 400-424.)
 
@@ -100,25 +100,41 @@ In the process of using the tool, the user is responsible for selecting a subset
 #### Selecting an appropriate Multiple Testing Correction for statistical significance. 
 In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. In instances where the GReX-NIDP association is alread identified, a nominal pvalue greater than 0.05 may be appropriate for replication. 
 
-> **PLEASE NOTE: the bonferroni and benjamini-hochberg analyses take into account all 22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page here. 
+ **PLEASE NOTE: the Bonferroni and Benjamini-hochberg analyses take into account all 22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page. 
 
 
 #### Using the commandline tools 
 
-Alternatively, you may run the R-script directly using the following parameters
+To use get_nidps.sh, run the following command in terminal:
+	
+	bash /PATH/commandline_tools/get_nidps.sh 
+
+The script will provide three prompts in sequence. 
+
+1. "Enter file containing Genes or Ensmbl IDs_ "	*paste or write path and filename of genes for query* 
+3. "Enter output directory_ " 	*paste or write path to output directory*
+4. "Choose imaging modality:"	*select imaging modality and atlas from dropdown menu*
+5. "Choose multiple testing threshold:"	*select preferred multiple testing correction from dropdown menu*
+
+The script will feed the provided data into an R analysis pipeline and deposit the resulting data into a file titled "NIDPs" in the provided output directory. 
+
+Alternatively, you may run the R-script directly providing the following parameters
 
 INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
 OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
 NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
 PATH : path to the downloaded NeuroimaGENE resource directory. 
 
-Run the script with the following commands customized for your genes of interest and directories
+Run the script with the following commands customized for your genes of interest and directories.
+	PATH >> direectory containing the downloaded files
+	TWASFILE >> file name for the desired NIDP atlas and multiple testing correction (found in PATH/resourcefiles/ )
 
-	Rscript PATH/Get_NIDPs.r \
-		-i INPUT_GENES.txt \
+	Rscript PATH/commandline_tools/Get_NIDPs.r \
+		-f INPUT_GENES.txt \
 		-o OUTPUT_DIR \
 		-n NAME \
-		-p PATH/
+		-t PATH/resource_data/TWASFILE \
+		-a PATH/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 		
 An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs in addition to the full set of NIDPs. 
  
