@@ -62,6 +62,9 @@ This script and the data it generates are designed to identify instances in whic
 
 In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. The options provided in the commandline tool are detailed below. 
 
+<details><summary>NIDP atlas descriptions and source links</summary>
+<p>
+
 |MRI modality| atlas name | Description | source | 
 | --- | --- | --- | --- | 
 |T1 | all | All measures recorded by the UKB neuroimaging study derived from T1 imaging| see note\*|
@@ -89,6 +92,8 @@ In the process of using the tool, the user is responsible for selecting a subset
 
 \* see original publication for details [here](https://doi.org/10.1016/j.neuroimage.2017.10.034) (Alfaro-Almagro, Fidel, et al. "Image processing and Quality Control for the first 10,000 brain imaging datasets from UK Biobank." Neuroimage 166 (2018): 400-424.)
 
+</p>
+</details>
 
 Packages and dependencies required to run this script are listed at the bottom of this subsection.
 
