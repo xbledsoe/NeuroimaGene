@@ -60,6 +60,8 @@ Included in the NeuroimaGENE directory is a commandline tool for analysis of mul
 
 This script and the data it generates are designed to identify instances in which dysexpression of multiple genes of interest converge upon related neurologic aspects. For example, one might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running get_nidps.sh on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant (according to the provided multiple testing threshold). 
 
+#### NIDP selection for gene set analysis
+
 In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. These NIDPs represent different types of brain measures such as hippocampal subfields, area and thickness of named cortical regions, fractional anisotropy of named white matter tracts etc. It is recommended to identify the type of brain measure one is interested in prior to performing the gene set analysis.  **The options provided in the commandline tool are detailed in the dropdown table below.**
 
 <details><summary>NIDP atlas descriptions and source links</summary>
@@ -95,20 +97,18 @@ In the process of using the tool, the user is responsible for selecting a subset
 </p>
 </details>
 
+#### Selecting an appropriate Multiple Testing Correction for statistical significance. 
 In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. In instances where the GReX-NIDP association is alread identified, a nominal pvalue greater than 0.05 may be appropriate for replication. 
-<p align="center">
-** PLEASE NOTE: the bonferroni and benjamini-hochberg analyses take into account all 22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the number of genes provided by the user. As a result the output of the commandline tool will be _overly conservative_. **
-The script is written this way for the sake of accessibillity. Performing multiple testing correction requires accessing larger datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses see this page here. 
-</p>
+
+** PLEASE NOTE: the bonferroni and benjamini-hochberg analyses take into account all 22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page here. 
 
 
+#### Using the commandline tools 
 
-Packages and dependencies required to run this script are listed at the bottom of this subsection.
-
-This Rscript requires the following parameters
+Alternatively, you may run the R-script directly using the following parameters
 
 INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
-OUTPUT_DIR: a directory in which the output from the analysis can be deposited
+OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
 NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
 PATH : path to the downloaded NeuroimaGENE resource directory. 
 
