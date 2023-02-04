@@ -56,11 +56,11 @@ NIDP details can be found [here](https://www.fmrib.ox.ac.uk/ukbiobank/) and [her
 
 ### Analytic Tools and built-in NIDP prioritization
 
-Included in the NeuroimaGENE directory is a commandline tool for analysis of multiple genes (get_nidps.sh). This program takes as input a file of genes (HUGO gene names or ensembl id's). Provided with a targeted subset of NIDPs and a multiple testing threshold correction, the script generates txt files containing the NIDPs implicated by the provided list of genes as well as graphs providing visual representations of the association data. 
+Included in the NeuroimaGENE directory is a commandline tool for analysis of multiple genes (get_nidps.sh). This program takes as input a file of genes (HUGO gene names or ensembl id's). The script generates .txt files containing the NIDPs implicated by the provided list of genes as well as graphs providing visual representations of the association data. 
 
-This script and the data it generates are designed to identify instances in which dysexpression of multiple genes of interest converge upon related neurologic aspects. For example, one might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running get_nidps.sh on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant. 
+This script and the data it generates are designed to identify instances in which dysexpression of multiple genes of interest converge upon related neurologic aspects. For example, one might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running get_nidps.sh on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant (according to the provided multiple testing threshold). 
 
-In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. **The options provided in the commandline tool are detailed in the dropdown table below.** 
+In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. These NIDPs represent different types of brain measures such as hippocampal subfields, area and thickness of named cortical regions, fractional anisotropy of named white matter tracts etc. It is recommended to identify the type of brain measure one is interested in prior to performing the gene set analysis.  **The options provided in the commandline tool are detailed in the dropdown table below.**
 
 <details><summary>NIDP atlas descriptions and source links</summary>
 <p>
@@ -94,6 +94,14 @@ In the process of using the tool, the user is responsible for selecting a subset
 
 </p>
 </details>
+
+In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. In instances where the GReX-NIDP association is alread identified, a nominal pvalue greater than 0.05 may be appropriate for replication. 
+<p align="center">
+** PLEASE NOTE: the bonferroni and benjamini-hochberg analyses take into account all 22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the number of genes provided by the user. As a result the output of the commandline tool will be _overly conservative_. **
+The script is written this way for the sake of accessibillity. Performing multiple testing correction requires accessing larger datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses see this page here. 
+</p>
+
+
 
 Packages and dependencies required to run this script are listed at the bottom of this subsection.
 
