@@ -86,6 +86,7 @@ In the process of using the tool, the user is responsible for selecting a subset
 |rfMRI |ICA-features | summary of functional connectivity components | see note\*|
 |T2_FLAIR | BIANCA | white matter hyperintensity classification algorithm | [BIANCA](https://doi.org/10.1016%2Fj.neuroimage.2016.07.018)|
 |T2star | SWI | susceptibility-weighted imaging: microhemorrhage and hemosiderin deposits | see note\*|
+
 \* see original publication for details [here](https://doi.org/10.1016/j.neuroimage.2017.10.034) (Alfaro-Almagro, Fidel, et al. "Image processing and Quality Control for the first 10,000 brain imaging datasets from UK Biobank." Neuroimage 166 (2018): 400-424.)
 
 
