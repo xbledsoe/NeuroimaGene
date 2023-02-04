@@ -109,10 +109,11 @@ To use get_nidps.sh, run the following command in terminal:
 	
 	bash /PATH/commandline_tools/get_nidps.sh 
 
-The script will provide three prompts in sequence. 
+The script will provide five prompts in sequence. 
 
 1. "Enter file containing Genes or Ensmbl IDs_ "	*paste or write path and filename of genes for query* 
-3. "Enter output directory_ " 	*paste or write path to output directory*
+2. "Enter output directory_ " 	*paste or write path to output directory*
+3. "Enter analysis tag_ "	*select short descriptive tag for analysis*
 4. "Choose imaging modality:"	*select imaging modality and atlas from dropdown menu*
 5. "Choose multiple testing threshold:"	*select preferred multiple testing correction from dropdown menu*
 
@@ -120,14 +121,14 @@ The script will feed the provided data into an R analysis pipeline and deposit t
 
 Alternatively, you may run the R-script directly providing the following parameters
 
-INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
-OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
-NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
-PATH : path to the downloaded NeuroimaGENE resource directory. 
+- INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
+- OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
+- NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
+- PATH: path to the downloaded NeuroimaGENE resource directory. 
+- TWASFILE: file name for the desired NIDP atlas and multiple testing correction (found in PATH/resourcefiles/ )
 
 Run the script with the following commands customized for your genes of interest and directories.
-	PATH >> direectory containing the downloaded files
-	TWASFILE >> file name for the desired NIDP atlas and multiple testing correction (found in PATH/resourcefiles/ )
+	 
 
 	Rscript PATH/commandline_tools/Get_NIDPs.r \
 		-f INPUT_GENES.txt \
@@ -139,15 +140,26 @@ Run the script with the following commands customized for your genes of interest
 An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs in addition to the full set of NIDPs. 
  
 
-#### tutorial data
-Within the Neuroimagene directory is an example template. This is meant to be run as a tutorial. You can run the tutorial via the following script requiring only the PATH of the downloaded directory. 
+### TUTORIAL
+Within the NeuroimaGene directory is an tutorial directory for practice running the script. You can run the tutorial via the following commands requiring only the PATH of the downloaded directory. 
 
-	Rscript PATH/GetNIDPs.r \
-	-f PATH/tutorial/gns.txt
-	-o PATH/tutorial/
-	-n test_data
-	-t PATH/resource_data/
-	-a PATH/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
+	bash /PATH/commandline_tools/get_nidps.sh
+		=> "Enter file containing Genes or Ensmbl IDs_ " PATH/online_resource/tutorial/tutorial_gns.tx
+		=> "Enter output directory_ " PATH/online_resource/tutorial/
+		=> "Enter analysis tag_ " stroke_gns
+		=> "Choose imaging modality:" (1)
+		=> "Choose multiple testing threshold:" (1)
+	
+Results should be generated and deposited in the following directory: PATH/online_resource/tutorial/stroke_gns_NIDPs
+
+Alternatively, you may run the program directly from the Rscript as shown below.
+
+	Rscript PATH/online_resource/GetNIDPs.r \
+	-f PATH/online_resource/tutorial/tutorial_gns.txt
+	-o PATH/online_resource/tutorial/
+	-n stroke_gns
+	-t PATH/online_resource/resource_data/all_assocs_33K_T1_a2009s_BHsig.txt.gz
+	-a PATH/online_resource/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 
 Amongst the other data generated, this should generate the following figure detailing NIDPs on the x axis and the mean normalized effect size magnitude on the y axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
