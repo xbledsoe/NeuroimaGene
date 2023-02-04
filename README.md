@@ -62,7 +62,7 @@ This script and the data it generates are designed to identify instances in whic
 
 In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. The options provided in the commandline tool are detailed below. 
 
-<details><summary>NIDP atlas descriptions and source links</summary>
+<details><summary>**CLICK ME for NIDP atlas descriptions and source links**</summary>
 <p>
 
 |MRI modality| atlas name | Description | source | 
