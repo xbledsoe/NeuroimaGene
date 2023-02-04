@@ -62,26 +62,28 @@ This script and the data it generates are designed to identify instances in whic
 
 In the process of using the tool, the user is responsible for selecting a subset of NIDPs from the resource for analysis. The options provided in the commandline tool are detailed below. 
 
-	dMRI: ProbtrackX	--> white matter mapping obtained via probabilistic tractography	
-	dMRI: TBSS		--> white matter mapping obtained via tract-based spatial statistics	
-	rfMRI: ICA100		--> functional connectivity using 100 cortical seeds
-	rfMRI: ICA25		--> functional connectivity using 25 cortical seeds
-	rfMRI: ICA-features	--> summary compilations of functional connectivity components
-	T1: a2009s		--> structure: Destrieux atlas of cortical sulci and gyri
-	T1: AmygNuclei 	--> structure: Nuclei of the amygdala
-	T1: aseg_volume	--> structure: subcortical volumetric segmentation
-	T1: Broadmann 	--> structure: Broadmann Areas
-	T1: Desikan		--> structure: Desikan Killiany atlas of cortical morphology
-	T1: DKTatlas 		--> structure: DKT atlas of cortical morphology
-	T1: FAST 		--> structure: FMRIB's Automated Segmentation Tool
-	T1: FIRST 		--> structure: FMRIB's Subcortical Segmentation Tool
-	T1: HippSubfield 	--> structure: Hippocampal subfields
-	T1: pial		--> structure: Desikan Killiany atlas of the pial surface
-	T1: Brainstem		--> structure: Freesurfer brainstem parcellation
-	T1: SIENAX		--> structure: Structural Image Evaluation of whole brain measures
-	T1: ThalamNuclei 	--> structure: Nuclei of the thalamus
-	T2_FLAIR: BIANCA 	--> white matter hyperintensity classification algorithm 
-	T2star: SWI 		--> susceptibility-weighted imaging: microhemorrhage and hemosiderin deposits
+	|MRI modality| atlas name | Description | source | 
+	| --- | --- | --- | --- | 
+	|dMRI | ProbtrackX | white matter mapping obtained via probabilistic tractography | [ProbtrackX](https://doi.org/10.1371/journal.pone.0061892)\*
+	|dMRI | TBSS | white matter mapping obtained via tract-based spatial statistics	 | [TBSS](https://doi.org/10.1016/j.neuroimage.2006.02.024)\*
+	|rfMRI | ICA100 | functional connectivity using 100 cortical seeds | [ICA100](https://doi.org/10.1016/j.neuroimage.2017.10.034)
+	|rfMRI |ICA25 | functional connectivity using 25 cortical seeds | [ICA25](https://doi.org/10.1016/j.neuroimage.2017.10.034)
+	|rfMRI |ICA-features | summary of functional connectivity components | [ICA-features](https://doi.org/10.1016/j.neuroimage.2017.10.034)
+	|T1 |a2009s | Destrieux atlas parcellation of cortical sulci and gyri | [Destrieux](https://doi.org/10.1016/j.neuroimage.2010.06.010)
+	|T1 |AmygNuclei | morphology of Nuclei of the amygdala | [Amygdala nuclei](https://doi.org/10.1016/j.neuroimage.2017.04.046)
+	|T1 |aseg_volume | subcortical volumetric segmentation | [aseg_volume](https://doi.org/10.1016/S0896-6273(02)00569-X)
+	|T1 | Broadmann | cortical morphology via Broadmann Areas | [Broadmann](https://doi.org/10.1093/cercor/bhm225)
+	|T1 | Desikan | Desikan Killiany atlas parcellation of cortical morphology | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)
+	|T1 | DKTatlas | DKT atlas parcellation of cortical morphology | [DKTatlas](https://doi.org/10.3389/fnins.2012.00171)
+	|T1 | FAST | cortical morphology via FMRIB's Automatic Segmentation Tool | [FAST](https://doi.org/10.1109/42.906424)
+	|T1 | FIRST | Subcortical morphologogy via FIRST | [FIRST](https://doi.org/10.1016/j.neuroimage.2011.02.046)
+	|T1 | HippSubfield | morphology of Hippocampal subfields | [HippSubfield](https://doi.org/10.1016/j.neuroimage.2015.04.042)
+	|T1 | pial | structure: Desikan Killiany atlas of the pial surface | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)
+	|T1 | Brainstem | structure: Freesurfer brainstem parcellation | [Brainstem](https://doi.org/10.1016/j.neuroimage.2015.02.065)
+	|T1 | SIENAX | structure: Structural Image Evaluation of whole brain measures | [SIENAX](https://doi.org/10.1006/nimg.2002.1040)
+	|T1 | ThalamNuclei | morphology of the Nuclei of the thalamus | [ThalamNuclei](https://doi.org/10.1038/s41597-021-01062-y)
+	|T2_FLAIR | BIANCA | white matter hyperintensity classification algorithm | [BIANCA](https://doi.org/10.1016%2Fj.neuroimage.2016.07.018)
+	|T2star | SWI | susceptibility-weighted imaging: microhemorrhage and hemosiderin deposits | [SWI](https://doi.org/10.1016/j.neuroimage.2017.10.034)
 
 
 Packages and dependencies required to run this script are listed at the bottom of this subsection.
