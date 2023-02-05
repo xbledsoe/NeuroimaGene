@@ -163,7 +163,7 @@ Alternatively, you may run the program directly from the Rscript as shown below.
 
 Amongst the other data generated, this should generate the following figure detailing NIDPs on the x axis and the mean normalized effect size magnitude on the y axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
-![test_data_tops_MeanZ](https://user-images.githubusercontent.com/62114350/181631306-b42d3755-0550-4077-bcc8-a20ddc516934.png)
+![stroke_gns_rank](https://user-images.githubusercontent.com/62114350/216794875-4707598c-05f3-44cc-8147-ffa45190f792.png)
 
 
 ### software package details
