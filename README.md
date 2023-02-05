@@ -141,7 +141,7 @@ An additional flag is the **-g** flag for genes. include **-g y** in the Rscript
  
 
 ### TUTORIAL
-Within the NeuroimaGene directory is an tutorial directory for practice running the script. You can run the tutorial via the following commands requiring only the PATH of the downloaded directory. 
+Within the NeuroimaGene directory is a tutorial directory for practice running the script. The data are derived from the following paper [Mishra et al, Nature 2022](https://doi.org/10.1038/s41586-022-05165-3) in which the authors use TWAS to identify several genes whose GReX is associated with stroke. Here we assess for structural MRI phenotypes from the Desikan Atlas associated with dysexpression of the prioritized genes. You can run the tutorial via the following commands requiring only the PATH of the downloaded directory. 
 
 	bash /PATH/commandline_tools/get_nidps.sh
 		=> "Enter file containing Genes or Ensmbl IDs_ " PATH/online_resource/tutorial/tutorial_gns.tx
@@ -158,7 +158,7 @@ Alternatively, you may run the program directly from the Rscript as shown below.
 	-f PATH/online_resource/tutorial/tutorial_gns.txt
 	-o PATH/online_resource/tutorial/
 	-n stroke_gns
-	-t PATH/online_resource/resource_data/all_assocs_33K_T1_a2009s_BHsig.txt.gz
+	-t PATH/online_resource/resource_data/all_assocs_33K_T1_Desikan_BHsig.txt.gz
 	-a PATH/online_resource/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 
 Amongst the other data generated, this should generate the following figure detailing NIDPs on the x axis and the mean normalized effect size magnitude on the y axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
