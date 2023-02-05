@@ -161,9 +161,10 @@ Alternatively, you may run the program directly from the Rscript as shown below.
 	-t PATH/online_resource/resource_data/all_assocs_33K_T1_Desikan_BHsig.txt.gz
 	-a PATH/online_resource/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
 
-Amongst the other data generated, this should generate the following figure detailing NIDPs on the x axis and the mean normalized effect size magnitude on the y axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
+Amongst the other data generated, this should generate the following figure detailing NIDPs on the y axis and the mean normalized effect size magnitude on the x axis with color and shape detailing MRI modality and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
-![stroke_gns_rank](https://user-images.githubusercontent.com/62114350/216794875-4707598c-05f3-44cc-8147-ffa45190f792.png)
+![stroke_gns_MeanZ](https://user-images.githubusercontent.com/62114350/216794905-ab61513f-f99d-4f90-b393-3b504ebcba41.png)
+
 
 
 ### software package details
