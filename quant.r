@@ -19,7 +19,6 @@ typ = args[4]
 mtc = args[5]
 num = args[6]
 
-
 if(mtc == 'nom') {
     colnm = 'pvalue'
 } else {
