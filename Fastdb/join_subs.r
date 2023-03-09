@@ -24,8 +24,16 @@ DT = fread('/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/T
 #atl = c(list.files( path = '/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/NG_subsets/atl', 
 #    pattern = 'BFsig|BHsig|nom', full.names = TRUE))
     
-    
-    
+new = fread('/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/TWAS_33K/all_assocs_33K_BHsig.txt', header = TRUE)   
+new = setnames(new[, c('gene', 'gwas_phenotype', 'training_model', 'bhpval')], 'bhpval', 'all_BHpval')
+DT = join(DT, new, by = c('gene', 'gwas_phenotype', 'training_model'), match = 'first')
+
+new = fread('/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/TWAS_33K/all_assocs_33K_BFsig.txt', header = TRUE)   
+new = setnames(new[, c('gene', 'gwas_phenotype', 'training_model', 'bfpval')], 'bfpval', 'all_BFpval')
+DT = join(DT, new, by = c('gene', 'gwas_phenotype', 'training_model'), match = 'first')
+
+
+
 new = fread('/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/NG_subsets/NeuroimaGene/BHmods.txt', header = TRUE)
 new = setnames(new, names(new)[4], 'mod_BHpval')
 DT = join(DT, new, by = c('gene', 'gwas_phenotype', 'training_model'), match = 'first')
@@ -52,7 +60,7 @@ write.table(DT, file = '/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGEN
 nimg <- dbConnect(RSQLite::SQLite(), "/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGENE/Analysis/NG_subsets/NeuroimaGene/NeuroimaGene.db")
 dbWriteTable(nimg, "associations", DT)
 
-tt = dbGetQuery(nimg, "SELECT gene_name, gwas_phenotype, training_model, atl_BHpval FROM associations WHERE gene='ENSG00000183336' AND atl_BHpval <0.05 AND atlas='AmygNuclei'")
+#tt = dbGetQuery(nimg, "SELECT gene_name, gwas_phenotype, training_model, atl_BHpval FROM associations WHERE gene='ENSG00000183336' AND atl_BHpval <0.05 AND atlas='AmygNuclei'")
 dbDisconnect(nimg)
 
 
