@@ -18,6 +18,7 @@ atl = args[3]
 typ = args[4]
 mtc = args[5]
 num = args[6]
+resource = args[7]
 
 if(mtc == 'nom') {
     colnm = 'pvalue'
@@ -27,7 +28,7 @@ colnm = paste0(typ, '_', mtc, 'pval')
 
 
 
-nimg <- dbConnect(RSQLite::SQLite(), '/gpfs52/data/g_gamazon_lab/xbledsoe/PhD-work/NeuroimaGene_Public/online_resource/commandline_tools/NeuroimaGene.db')
+nimg <- dbConnect(RSQLite::SQLite(), resource)
 
 sqlcmd = paste0( "SELECT gene, gene_name, zscore, gwas_phenotype, training_model, ", 
                             colnm, 

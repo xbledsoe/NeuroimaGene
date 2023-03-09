@@ -202,5 +202,5 @@ echo "Running analysis..."
 
 
 
-Rscript ${home}quant.r $gene $MOD $ATL $typ $mtc $num
+Rscript ${home}quant.r $gene $MOD $ATL $typ $mtc $num ${home}NeuroimaGene.db
 
