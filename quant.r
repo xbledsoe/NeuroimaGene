@@ -30,12 +30,25 @@ colnm = paste0(typ, '_', mtc, 'pval')
 
 nimg <- dbConnect(RSQLite::SQLite(), resource)
 
-sqlcmd = paste0( "SELECT gene, gene_name, zscore, gwas_phenotype, training_model, ", 
+if (typ == 'atl') {
+	sqlcmd = paste0( "SELECT gene, gene_name, zscore, gwas_phenotype, training_model, ", 
                             colnm, 
                         " FROM associations WHERE gene ='", gn,  
                             "' OR gene_name = '", gn,
                         "' AND ", colnm, "< 0.05 AND atlas='", atl, "' AND modality='", mod,"'")
-
+	} else if (typ == 'mod') {
+	sqlcmd = paste0( "SELECT gene, gene_name, zscore, gwas_phenotype, training_model, ",
+                            colnm,
+                        " FROM associations WHERE gene ='", gn,
+                            "' OR gene_name = '", gn,
+                        "' AND ", colnm, "< 0.05 AND modality='", mod,"'")
+	} else {
+sqlcmd = paste0( "SELECT gene, gene_name, zscore, gwas_phenotype, training_model, ",
+                            colnm,
+                        " FROM associations WHERE gene ='", gn,
+                            "' OR gene_name = '", gn,
+                        "' AND ", colnm, "< 0.05")
+}
 
 dt = dbGetQuery(nimg, sqlcmd)
 setDT(dt)
