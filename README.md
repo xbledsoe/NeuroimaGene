@@ -114,8 +114,8 @@ The script will prompt the user for four pieces of information.
 
 	(1) the name of the gene (ensembl ID or HUGO gene name); 
 	(2) the subset of Neuroimaging features to be queried, 
-	(3) the multiple testing correction by which p-values should be adjusted for significance filtering (Only associations with adjusted p-values 	
-		less than 0.05 will be returned. 
+	(3) the multiple testing correction by which p-values should be adjusted for significance filtering 
+		(Only associations with adjusted p-values less than 0.05 will be returned.) 
 	(4) The number of results the user wishes to preview in raw tabular form. (3-10 recommended)
 
 Upon receipt of these data, the program will select the subset of significant GReX-neuroimaging associations that fit the user's criteria for the gene in question. It will print a preview of these associations to the terminal in accordance with the number of requested lines from prompt 4. below the data preview, the script provides a number of descriptive statistics about the gene in question and it's associations with the queried neuroimaging features. 
@@ -144,8 +144,8 @@ Alternatively, you may run the R-script directly providing the following paramet
 - RESOURCE: The path and name of the NeuroimaGenefast.db file (included in the home directory)
 - OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
 - NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
-- MODALITY: the modality of the queried neuroimaging set (T1, dMRI, rfMRI etc.) [required if type not 'all']
-- ATLAS: the atlas of the queried neuroimaging set [required if type = 'atl']
+- MODALITY: the modality of the queried neuroimaging set (T1, dMRI, rfMRI etc.) \[required if type not 'all']
+- ATLAS: the atlas of the queried neuroimaging set \[required if type = 'atl']
 - TYPE: the type of data subset ('atl' for an atlas-defined subset, 'mod' for modality-defined subset, or 'all')
 - PVALUE: P-value Multiple Testing Correction ("BH" for Benjamini Hochberg FDR, "BF" for Bonferroni, "nom" for nominal)
 - PATH: path to the downloaded NeuroimaGENE resource directory. 
