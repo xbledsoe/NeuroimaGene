@@ -102,12 +102,31 @@ In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple test
 
  **PLEASE NOTE: the Bonferroni and Benjamini-hochberg analyses take into account all ~22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page. 
 
+The full set of associations in raw text form is a little cumbersome (~2.5 GB) and can be found as a gzipped file within the downloaded folder titled "NeuroimaGene.txt"  
 
 ### Using the commandline tools 
 
+We include two commandline tools in the provided resource. The first is a simple script named get.sh. This can be used to preview neuroimaging measures that are associated with a single gene at a user-provided significance level. It is not intended as a primary research tool and does not return any interactable files. Instead, it is intended as a means to check the resource for a gene of interest and to familiarize oneself with the resource prior to more in-depth analyses. To run the script, navigate to the resource directory in the commandline and run the following command:
+
+	bash get.sh
+	
+The script will prompt the user for four pieces of information. 
+
+	(1) the name of the gene (ensembl ID or HUGO gene name); 
+	(2) the subset of Neuroimaging features to be queried, 
+	(3) the multiple testing correction by which p-values should be adjusted for significance filtering (Only associations with adjusted p-values 	
+		less than 0.05 will be returned. 
+	(4) The number of results the user wishes to preview in raw tabular form. (3-10 recommended)
+
+Upon receipt of these data, the program will select the subset of significant GReX-neuroimaging associations that fit the user's criteria for the gene in question. It will print a preview of these associations to the terminal in accordance with the number of requested lines from prompt 4. below the data preview, the script provides a number of descriptive statistics about the gene in question and it's associations with the queried neuroimaging features. 
+
+_____________________________________________
+
+The second script is designed for a richer analytic approach. Using similar commandline prompts, it takes as input a list of genes and identifies the neuroimaging measures most strongly associated with that set of genes. It returns a text file with the identified associations as well as a visual representation of the NIDPs most heavily associated with the gene set, annotated by brain regions. 
+
 To use get_nidps.sh, run the following command in terminal:
 	
-	bash /PATH/commandline_tools/get_nidps.sh 
+	bash /PATH/get_nidps.sh 
 
 The script will provide five prompts in sequence. 
 
@@ -117,50 +136,62 @@ The script will provide five prompts in sequence.
 4. "Choose imaging modality:"	*select imaging modality and atlas from dropdown menu*
 5. "Choose multiple testing threshold:"	*select preferred multiple testing correction from dropdown menu*
 
-The script will feed the provided data into an R analysis pipeline and deposit the resulting data into a file titled "NIDPs" in the provided output directory. 
+The script will feed the provided data into an R analysis pipeline and deposit the resulting data into a file titled "[your tag here]NIDPs" in the provided output directory. 
 
 Alternatively, you may run the R-script directly providing the following parameters
 
 - INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
+- RESOURCE: The path and name of the NeuroimaGenefast.db file (included in the home directory)
 - OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
 - NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
+- MODALITY: the modality of the queried neuroimaging set (T1, dMRI, rfMRI etc.) [required if type not 'all']
+- ATLAS: the atlas of the queried neuroimaging set [required if type = 'atl']
+- TYPE: the type of data subset ('atl' for an atlas-defined subset, 'mod' for modality-defined subset, or 'all')
+- PVALUE: P-value Multiple Testing Correction ("BH" for Benjamini Hochberg FDR, "BF" for Bonferroni, "nom" for nominal)
 - PATH: path to the downloaded NeuroimaGENE resource directory. 
-- TWASFILE: file name for the desired NIDP atlas and multiple testing correction (found in PATH/resourcefiles/ )
 
 Run the script with the following commands customized for your genes of interest and directories.
 	 
 
-	Rscript PATH/commandline_tools/Get_NIDPs.r \
+	Rscript PATH/Get_NIDPs.r \
 		-f INPUT_GENES.txt \
+		-r PATH/NeuroimaGenefast.db
 		-o OUTPUT_DIR \
 		-n NAME \
-		-t PATH/resource_data/TWASFILE.txt.gz \
-		-a PATH/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
+		-m MODALITY \
+		-a ATLAS \
+		-t TYPE \
+		-p PVALUE \
+		-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv
 		
-An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs in addition to the full set of NIDPs. 
+An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs for that gene in addition to typical the full analysis for the aggregate set of NIDPs. 
  
 
 ### TUTORIAL
 Within the NeuroimaGene directory is a tutorial directory for practice running the script. The data are derived from the following paper [Mishra et al, Nature 2022](https://doi.org/10.1038/s41586-022-05165-3) in which the authors use TWAS to identify several genes whose GReX is associated with stroke. Here we assess for structural MRI phenotypes from the Desikan Atlas associated with dysexpression of the prioritized genes. You can run the tutorial via the following commands requiring only the PATH of the downloaded directory. 
 
-	bash /PATH/commandline_tools/get_nidps.sh
-		=> "Enter file containing Genes or Ensmbl IDs_ " PATH/online_resource/tutorial/tutorial_gns.tx
-		=> "Enter output directory_ " PATH/online_resource/tutorial/
+	bash /PATH/get_nidps.sh
+		=> "Enter file containing Genes or Ensmbl IDs_ " PATH/tutorial/tutorial_gns.tx
+		=> "Enter output directory_ " PATH/tutorial/
 		=> "Enter analysis tag_ " stroke_gns
 		=> "Choose imaging modality:" (1)
 		=> "Choose multiple testing threshold:" (1)
 	
-Results should be generated and deposited in the following directory: PATH/online_resource/tutorial/stroke_gns_NIDPs
+Results should be generated and deposited in the following directory: PATH/tutorial/stroke_gns_NIDPs
 
 Alternatively, you may run the program directly from the Rscript as shown below.
 
-	Rscript PATH/online_resource/GetNIDPs.r \
-	-f PATH/online_resource/tutorial/tutorial_gns.txt
-	-o PATH/online_resource/tutorial/
+	Rscript PATH/GetNIDPs.r \
+	-f /PATH/tutorial/tutorial_gns.txt
+	-r /PATH/NeuroimaGenefast.db
+	-o /PATH/tutorial/
 	-n stroke_gns
-	-t PATH/online_resource/resource_data/all_assocs_33K_T1_Desikan_BHsig.txt.gz
-	-a PATH/online_resource/resource_data/BIG40-IDPs_v4_discovery2_anno.tsv
-
+	-m 'T1' \
+	-a 'Desikan' \
+	-t 'atl' \
+	-p 'BH' \
+	-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv
+	
 Amongst the other data generated, this should generate the following figure detailing NIDPs on the y axis and the mean normalized effect size magnitude on the x axis with color and shape detailing brain region descriptors and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
 ![stroke_gns_MeanZ (2)](https://user-images.githubusercontent.com/62114350/218187084-e1dcc8b2-e8a1-478f-9265-8c8999eff503.png)
@@ -175,6 +206,8 @@ data.table R package [download here](https://rdatatable.gitlab.io/data.table/)
 ggplot R package [download here](https://ggplot2.tidyverse.org/)
 
 optparse R package [download here](https://github.com/trevorld/r-optparse)
+
+DBI R package [download here](https://cran.r-project.org/web/packages/DBI/index.html)
 
 >Please direct all questions to me at the following email: xbledsoe22@gmail.com
 
