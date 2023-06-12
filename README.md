@@ -198,6 +198,9 @@ Amongst the other data generated, this should generate the following figure deta
 
 ![stroke_gns_MeanZ (2)](https://user-images.githubusercontent.com/62114350/218187084-e1dcc8b2-e8a1-478f-9265-8c8999eff503.png)
 
+![tutorial_T1bhDes_volume_Desikan](https://github.com/xbledsoe/NeuroimaGene/assets/62114350/434f4815-fa4e-4db0-ae39-6f2a2db7ee88)
+![tutorial_T1bhDes_area_Desikan](https://github.com/xbledsoe/NeuroimaGene/assets/62114350/e438bc48-4a94-42e1-a87c-39f2906cd583)
+![tutorial_T1bhDes_thickness_Desikan](https://github.com/xbledsoe/NeuroimaGene/assets/62114350/75a45c6a-f9c0-4d88-97e4-20724f2caf3e)
 
 
 ### software package details
