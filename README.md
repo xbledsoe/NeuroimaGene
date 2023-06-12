@@ -153,7 +153,7 @@ Alternatively, you may run the R-script directly providing the following paramet
 Run the script with the following commands customized for your genes of interest and directories.
 	 
 
-	Rscript PATH/Get_NIDPs.r \
+	Rscript PATH/get_NIDPs_vis.r \
 		-f INPUT_GENES.txt \
 		-r PATH/NeuroimaGenefast.db
 		-o OUTPUT_DIR \
@@ -162,7 +162,8 @@ Run the script with the following commands customized for your genes of interest
 		-a ATLAS \
 		-t TYPE \
 		-p PVALUE \
-		-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv
+		-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv \
+  		-b /PATH/fs_anno.txt
 		
 An additional flag is the **-g** flag for genes. include **-g y** in the Rscript command, you will receive a text file and png figure for each individual gene detailing the top associated NIDPs for that gene in addition to typical the full analysis for the aggregate set of NIDPs. 
  
@@ -181,7 +182,7 @@ Results should be generated and deposited in the following directory: PATH/tutor
 
 Alternatively, you may run the program directly from the Rscript as shown below.
 
-	Rscript PATH/GetNIDPs.r \
+	Rscript PATH/get_NIDPs_vis.r \
 	-f /PATH/tutorial/tutorial_gns.txt
 	-r /PATH/NeuroimaGenefast.db
 	-o /PATH/tutorial/
@@ -190,9 +191,10 @@ Alternatively, you may run the program directly from the Rscript as shown below.
 	-a 'Desikan' \
 	-t 'atl' \
 	-p 'BH' \
-	-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv
+	-s /PATH/BIG40-IDPs_v4_discovery2_anno.tsv \
+ 	-b /PATH/fs_anno.txt
 	
-Amongst the other data generated, this should generate the following figure detailing NIDPs on the y axis and the mean normalized effect size magnitude on the x axis with color and shape detailing brain region descriptors and direction of effect respectively. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
+Amongst the other data generated, this should generate the following figure detailing NIDPs on the y axis and the mean normalized effect size magnitude on the x axis with color and shape detailing brain region descriptors and direction of effect respectively. There are 3 additional plots showing the mean normalized effect size of the genes on the brain regions characterized by the Desikan atlas divided into volume, surface area, and thickness. As stated above, detailed information concerning the naming of the NIDPs is available the the [UKB online neuroimaging portal.](https://www.fmrib.ox.ac.uk/ukbiobank/) 
 
 ![stroke_gns_MeanZ (2)](https://user-images.githubusercontent.com/62114350/218187084-e1dcc8b2-e8a1-478f-9265-8c8999eff503.png)
 
