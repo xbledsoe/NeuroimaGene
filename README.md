@@ -20,7 +20,7 @@ Before continuing, a little terminology.
 	GTEx  - Genotype Tissue Expression Consortium
 	
 
-#### Associated Papers for further reading
+#### Associated papers for further reading
 
 Barbeira, Alvaro N., et al. "Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics." Nature communications 9.1 (2018): 1-20.
 
@@ -32,13 +32,13 @@ Elliott, Lloyd T., et al. "Genome-wide association studies of brain imaging phen
 
 Gamazon, Eric R., et al. "Multi-tissue transcriptome analyses identify genetic mechanisms underlying neuropsychiatric traits." Nature genetics 51.6 (2019): 933-940.
 
-## Using the Resource
+## Using the resource
 
 ### Accessing the resource
-The NeuroimaGENE resource can be accessed here on github. The directory is titled NeuroimaGENE_resource. Inside are a few files with the resource being NeuroimaGENE.txt.gz. This gzipped file contains the bonferroni significant associations between GReX and NIDPs according to each of 19 different tissue specific eQTL models derived from GTEx and enriched via JTI. 
+The NeuroimaGENE resource can be accessed here on github. The directory is titled NeuroimaGENE_resource. Inside are a few files with the resource being NeuroimaGENE.txt.gz. This gzipped file contains the bonferroni significant associations between GReX and NIDPs according to each of 19 different tissue specific JTI models trained in GTEx data. 
 
 ### Basic command line usage
-Having downloaded the datafile, it is possible to query the neuroimaGENE for NIDPs associated with GReX for a gene of interest through the following command. The text to change is in all caps ("GENE_1" and "OUTPUT_PATH/FILE"). The training_model pattern is to ensure that the header is included in the output file. 
+Having downloaded the datafile, it is possible to query the NeuroimaGENE for NIDPs associated with GReX for a gene of interest through the following command. The text to change is in all caps ("GENE_1" and "OUTPUT_PATH/FILE"). The training_model pattern is to ensure that the header is included in the output file. 
 
 	      zcat NeuroimaGENE.txt.gz | grep -w 'training_model\|GENE_1' > OUTPUT_PATH/FILE.txt
 	
@@ -98,7 +98,7 @@ In the process of using the tool, the user is responsible for selecting a subset
 </details>
 
 #### Selecting an appropriate Multiple Testing Correction for statistical significance. 
-In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. In instances where the GReX-NIDP association is alread identified, a nominal pvalue greater than 0.05 may be appropriate for replication. 
+In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. In instances where the GReX-NIDP association is already identified, a nominal pvalue less than 0.05 with concordant direction of effect may be appropriate for replication. 
 
  **PLEASE NOTE: the Bonferroni and Benjamini-hochberg analyses take into account all ~22,000 available genes. The commandline script does NOT recalculate multiple testing corrections based on the set of genes provided by the user.** For the BF and fdr corrections, the null hypothesis for each gene test is the set of ALL other genes, potentially including the other genes in the gene set provided by the user. It may be possible to obtain a marginal increase in power by testing the genes in the gene set against a null distribution of the genes *not* in the user-provided gene set. This type of analysis requires accessing the larger, unthresholded datasets stored on our Zenodo repository and is also more computationally demanding. For instructions on accessing these data and performing gene-set specific significance analyses please see this page. 
 
