@@ -10,13 +10,13 @@ Before continuing, a little terminology.
 	TWAS  - Transcriptome Wide Association Study
 	GReX  - Genetically regulated gene expression
 	JTI   - Joint Tissue Imputation (link)
-	NIDP  - Neuroimaging derived Phenotype
+	NIDP  - Neuroimaging Derived Phenotype
 	MRI   - Magnetic resonance imaging
 	T1   - MRI modality classically used for structural characterization of the brain
 	dMRI  - diffusion weighted MRI (used in our data for white matter tractography)
 	fMRi  - functional MRI used for examining coordinated activity across regions of the brain 
-	UKB   - United Kingdom biobank
-	eQTL  - expression Quantitative trait locus
+	UKB   - United Kingdom Biobank
+	eQTL  - expression Quantitative Trait Locus
 	GTEx  - Genotype Tissue Expression Consortium
 	
 
