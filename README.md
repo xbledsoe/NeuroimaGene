@@ -12,7 +12,7 @@ Before continuing, a little terminology.
 	JTI   - Joint Tissue Imputation (link)
 	NIDP  - Neuroimaging Derived Phenotype
 	MRI   - Magnetic resonance imaging
-	T1   - MRI modality classically used for structural characterization of the brain
+	T1    - MRI modality classically used for structural characterization of the brain
 	dMRI  - diffusion weighted MRI (used in our data for white matter tractography)
 	fMRi  - functional MRI used for examining coordinated activity across regions of the brain 
 	UKB   - United Kingdom Biobank
