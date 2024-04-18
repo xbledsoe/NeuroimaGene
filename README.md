@@ -1,6 +1,6 @@
 ## Background
 
-This is the resource page for the NeuroimaGene resource described in our paper "A Transcriptomic Atlas of the Human Brain Reveals Genetically Determined Aspects of Neuropsychiatric Health." This resource serves as a publicly accessible atlas detailing the associations between endogenous gene expression and brain anatomy and physiology. As detailed in the paper, we conduct Joint Tissue Imputation (JTI) informed Transcriptome Wide Association Studies (TWAS) via summary statistics based S-PrediXcan for the >3,500  genome wide association studies (GWAS) conducted by the UK BioBank (UKB) for MRI-derived measures of the brain. We identify genetically regulated gene expression (GReX) associated with neurologic measures observed on MRI imaging. The patients comprising the UKB neuroimaging study are 40-69 and were screened for overt neurologic pathology. They generally represent an adult population without neurologic disease. 
+This is the resource page for the NeuroimaGene resource described in our paper "A Transcriptomic Atlas of the Human Brain Reveals Genetically Determined Aspects of Neuropsychiatric Health." This resource serves as a publicly accessible atlas detailing the associations between endogenous gene expression and brain anatomy and physiology. As detailed in the paper, we conduct Joint Tissue Imputation (JTI) informed Transcriptome Wide Association Studies (TWAS) via summary statistics based S-PrediXcan for the >3,400  genome wide association studies (GWAS) conducted by the UK BioBank (UKB) for MRI-derived measures of the brain. We identify genetically regulated gene expression (GReX) associated with neurologic measures observed on MRI imaging. The patients comprising the UKB neuroimaging study are 40-69 and were screened for overt neurologic pathology. They generally represent an adult population without neurologic disease. 
 
 As such, NeuroimaGENE catalogues the neurologic consequences of lifelong exposure to increases or decreases in gene expression. 
 
@@ -35,28 +35,33 @@ Gamazon, Eric R., et al. "Multi-tissue transcriptome analyses identify genetic m
 ## Using the resource
 
 ### Accessing the resource
-The NeuroimaGENE resource can be accessed here on github. The directory is titled NeuroimaGENE_resource. Inside are a few files with the resource being NeuroimaGENE.txt.gz. This gzipped file contains the bonferroni significant associations between GReX and NIDPs according to each of 19 different tissue specific JTI models trained in GTEx data. 
+The full neuroimaGene resource consists of commandline interface located here on Github as well as a SQL database containing the associations which are the heart of the project. 
 
 ### Basic command line usage
-Having downloaded the datafile, it is possible to query the NeuroimaGENE for NIDPs associated with GReX for a gene of interest through the following command. The text to change is in all caps ("GENE_1" and "OUTPUT_PATH/FILE"). The training_model pattern is to ensure that the header is included in the output file. 
-
-	      zcat NeuroimaGENE.txt.gz | grep -w 'training_model\|GENE_1' > OUTPUT_PATH/FILE.txt
-	
-The command above will generate an output file detailing the associations. The contents are as follows
+Having downloaded the NeuroimaGene SQL database, the commandline tool, hosted here on github, is designed to enable the user end functionality. The scripts in this repository allow the user to query the NeuroimaGENE for NIDPs associated with GReX for one or more genes of interest through the commands detailed below. The output from the commands will return a txt file with the following data: 
 
 	gene: the Ensmble Gene ID
 	gene_name: the HUGO gene name 
-	zscore: The normalized effect size across all tested GRex-NIDP-tissue associations (most appropriate for comparison)
-	effect_size: the raw value of the predicted effect size
 	gwas_phenotype: the Neuroimaging Derived Phenotype as detailed by the UKB neuroimaging GWAS 
-	training_model: the JTI-enriched tissue specific eQTL model in which the association is found
-	bhpval: the benjamini-hochberg false-discovery rate corrected association pvalue
+	zscore: The normalized effect size of GReX on the NIDP (most appropriate for comparison)
+	effect_size: the raw value of the predicted effect size
+ 	training_model: the JTI-enriched tissue specific model in which the association is found
+	atl_bhpval: the atlas-specific benjamini-hochberg false-discovery rate corrected association p-value
+ 			or
+ 	atl_bfpval: the atlas-specific bonferroni corrected p-value
+  			or
+     	mod_bhpval: the modality-specific benjamini-hochberg false-discovery rate corrected association p-value
+ 			or
+ 	mod_bfpval: the modality-specific bonferroni corrected p-value
+  			or
+     	pvalue: the nominal, uncorrected association p-value
+  	
 	
 NIDP details can be found [here](https://www.fmrib.ox.ac.uk/ukbiobank/) and [here](https://www.fmrib.ox.ac.uk/ukbiobank/gwaspaper/index.html)
 
 ### Analytic Tools and built-in NIDP prioritization
 
-Included in the NeuroimaGENE directory is a commandline tool for analysis of multiple genes (get_nidps.sh). This program takes as input a file of genes (HUGO gene names or ensembl id's). The script generates .txt files containing the NIDPs implicated by the provided list of genes as well as graphs providing visual representations of the association data. 
+Included in the NeuroimaGene repository is a commandline tool for analysis of multiple genes (get_nidps.sh). This program takes as input a file of genes (HUGO gene names or ensembl id's). The script generates .txt files containing the NIDPs implicated by the provided list of genes as well as graphs providing visual representations of the association data. 
 
 This script and the data it generates are designed to identify instances in which dysexpression of multiple genes of interest converge upon related neurologic aspects. For example, one might expect multiple genes associated with distractiability to converge upon the executive network of the brain. Running get_nidps.sh on a set of genes associated with distractability will display the set of NIDPs predicted to be most different from baseline in the presence of altered expression of the input genes. The text file will indicate the number and identity of trait-associated genes associated with each NIDP. It will also detail the number and identity of the training models in which these associations were found to be significant (according to the provided multiple testing threshold). 
 
@@ -70,12 +75,12 @@ In the process of using the tool, the user is responsible for selecting a subset
 |MRI modality| atlas name | Number of NIDPs |Description | source | 
 | --- | --- | --- | --- | --- |
 |T1 | all | 1319 | All measures recorded by the UKB neuroimaging study derived from T1 imaging| see note\*|
-|T1 | a2009s | 444 | Destrieux atlas parcellation of cortical sulci and gyri | [Destrieux](https://doi.org/10.1016/j.neuroimage.2010.06.010) |
+|T1 | Destrieux | 444 | Destrieux atlas parcellation of cortical sulci and gyri | [Destrieux](https://doi.org/10.1016/j.neuroimage.2010.06.010) |
 |T1 | AmygNuclei | 20 | morphology of Nuclei of the amygdala | [Amygdala nuclei](https://doi.org/10.1016/j.neuroimage.2017.04.046)|
-|T1 | aseg_volume | 52 | subcortical volumetric segmentation | [aseg_volume](https://doi.org/10.1016/S0896-6273(02)00569-X)|
+|T1 | Subcortex | 52 | subcortical volumetric segmentation | [Subcortex](https://doi.org/10.1016/S0896-6273(02)00569-X)|
 |T1 | Broadmann | 84 | cortical morphology via Broadmann Areas | [Broadmann](https://doi.org/10.1093/cercor/bhm225)|
 |T1 | Desikan | 202 | Desikan Killiany atlas parcellation of cortical morphology | [Desikan](https://doi.org/10.1016/j.neuroimage.2006.01.021)|
-|T1 | DKTatlas | 186 | DKT atlas parcellation of cortical morphology | [DKTatlas](https://doi.org/10.3389/fnins.2012.00171)|
+|T1 | DKT | 186 | DKT atlas parcellation of cortical morphology | [DKT](https://doi.org/10.3389/fnins.2012.00171)|
 |T1 | FAST | 139 | cortical morphology via FMRIB's Automatic Segmentation Tool | [FAST](https://doi.org/10.1109/42.906424)|
 |T1 | FIRST | 15 | Subcortical morphologogy via FIRST | [FIRST](https://doi.org/10.1016/j.neuroimage.2011.02.046)|
 |T1 | HippSubfield | 44 | morphology of Hippocampal subfields | [HippSubfield](https://doi.org/10.1016/j.neuroimage.2015.04.042)|
@@ -100,7 +105,7 @@ In the process of using the tool, the user is responsible for selecting a subset
 #### Selecting an appropriate Multiple Testing Correction for statistical significance. 
 In addition to selecting the set of NIDPs, get_nidps.sh requires a multiple testing threshold correction. Each imaging modality contains a different number of NIDPs (see table above). The Bonferroni correction treats each of these NIDPs as independent even though we know through significant data analyses that this is not true. This is a highly conservative threshold that will yield high confidence associations but is likely to generate many false negatives. Recognizing the interrelatedness of brain measures from the same modality and atlas, we recommend using the less stringent  Benjamini Hochberg False discovery rate for discovery analyses. 
 
-The full set of associations in raw text form is a little cumbersome (~2.5 GB) and can be found as a gzipped file within the downloaded folder titled "NeuroimaGene.txt"  
+The full set of associations in sql database form is a little cumbersome (~1 GB) and can be found on Zenodo."  
 
 ### Using the commandline tools 
 
@@ -139,7 +144,7 @@ The script will feed the provided data into an R analysis pipeline and deposit t
 Alternatively, you may run the R-script directly providing the following parameters
 
 - INPUT_GENES.txt: A .txt file containing a single column of HUGO gene names or ensembl ids with no header
-- RESOURCE: The path and name of the NeuroimaGenefast.db file (included in the home directory)
+- RESOURCE: The path and name of the NeuroimaGenefast.db file (Downloaded from [Zenodo](https://zenodo.org/records/10994978))
 - OUTPUT_DIR: a directory path to which the output from the analysis should be deposited
 - NAME: a short descriptive name to mark the analysis (eg. parknsn_genes if studying Parkinson's)
 - MODALITY: the modality of the queried neuroimaging set (T1, dMRI, rfMRI etc.) \[required if type not 'all']
