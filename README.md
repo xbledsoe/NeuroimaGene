@@ -35,7 +35,7 @@ Gamazon, Eric R., et al. "Multi-tissue transcriptome analyses identify genetic m
 ## Using the resource
 
 ### Accessing the resource
-The full neuroimaGene resource consists of commandline interface located here on Github as well as a SQL database containing the associations which are the heart of the project. 
+The full neuroimaGene resource consists of commandline interface located here on Github as well as a SQL database containing the associations which are the heart of the project. Prior to using the tools here, download the NeuroimaGene resource from [Zenodo](https://zenodo.org/records/10994978) and add the neuroimaGene.db file to the neuroimaGene directory. 
 
 ### Basic command line usage
 Having downloaded the NeuroimaGene SQL database, the commandline tool, hosted here on github, is designed to enable the user end functionality. The scripts in this repository allow the user to query the NeuroimaGENE for NIDPs associated with GReX for one or more genes of interest through the commands detailed below. The output from the commands will return a txt file with the following data: 
