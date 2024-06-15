@@ -1,3 +1,5 @@
+# NeuroimaGene [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/xbledsoe/NeuroimaGene/blob/main/LICENSE) 
+
 ## Background
 
 This is the resource page for the NeuroimaGene resource described in our paper "A Transcriptomic Atlas of the Human Brain Reveals Genetically Determined Aspects of Neuropsychiatric Health." This resource serves as a publicly accessible atlas detailing the associations between endogenous gene expression and brain anatomy and physiology. As detailed in the paper, we conduct Joint Tissue Imputation (JTI) informed Transcriptome Wide Association Studies (TWAS) via summary statistics based S-PrediXcan for the >3,400  genome wide association studies (GWAS) conducted by the UK BioBank (UKB) for MRI-derived measures of the brain. We identify genetically regulated gene expression (GReX) associated with neurologic measures observed on MRI imaging. The patients comprising the UKB neuroimaging study are 40-69 and were screened for overt neurologic pathology. They generally represent an adult population without neurologic disease. 
