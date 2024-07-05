@@ -21,6 +21,9 @@ Before continuing, a little terminology.
 	eQTL  - expression Quantitative Trait Locus
 	GTEx  - Genotype Tissue Expression Consortium
 	
+#### R package in CRAN
+
+neuroimaGene: Transcriptomic Atlas of Neuroimaging Derived Phenotypes.  [Download](https://cran.r-project.org/web/packages/neuroimaGene/index.html).
 
 #### Associated papers for further reading
 
