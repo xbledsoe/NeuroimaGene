@@ -187,7 +187,7 @@ atl_dir = data.table(source = c('Desikan', 'desikan', 'DKT', 'dktatlas', 'aparc'
 atlas = atl_dir[source == atl,fs_atlas]
 atlnm = atl_dir[source == atl,atl_name]
 
-fs_anno = fread('/Users/xbledsoe/fsbrain/fs_anno.txt', header = TRUE)
+fs_anno = fread(opt$fs_annotation, header = TRUE)
 stat_vis = setDT(merge(stats, fs_anno, by = 'gwas_phenotype'))
 #Subset the data that is of the correct atlas
 print('subsetting data by atlas')
