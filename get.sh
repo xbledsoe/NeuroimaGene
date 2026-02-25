@@ -129,27 +129,27 @@ do
             typ=atl
             break;;
         "rfMRI: ICA100	--> functional connectivity: 100 cortical seeds")
-            MOD=dMRI
+            MOD=fMRI
             ATL=ICA100
             typ=atl
             break;;
         "rfMRI: ICA25	--> functional connectivity: 25 cortical seeds")
-            MOD=dMRI
+            MOD=fMRI
             ATL=ICA25
             typ=atl
             break;;
         "rfMRI: ICA-features	--> summary compilations of functional connectivity")
-            MOD=dMRI
+            MOD=fMRI
             ATL=ICA-features
             typ=atl
             break;;
         "T2_FLAIR: BIANCA 	--> white matter: hyperintensity measures")
-            MOD=dMRI
+            MOD=T2
             ATL=BIANCA
             typ=atl
             break;;
         "T2star: SWI 	--> susceptibility-weighted imaging")
-            MOD=dMRI
+            MOD=T2
             ATL=SWI
             typ=atlas
             break;;
